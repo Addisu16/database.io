@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="submit"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form.inline-form {
+            display: inline-block;
+        }
+        form.inline-form input[type="submit"] {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>listbook</h1>
+    <div>
+
+        <form action="listbook" method="get" class="inline-form">
+            <input type="text" name="ISBN" placeholder="ISBN" value="<%= query.ISBN %>" />
+
+        </form>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (var i=0; i < listbook.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= listbook[i].ISBN %>
+                    </td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>
