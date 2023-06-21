@@ -1,63 +1,89 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Details Registration</title>
 
-    <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    h1 {
+      text-align: center;
+      color: #333;
+    }
 
-    <title>Book Details Registration</title>
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
 
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+</head>
 
 <body>
-
-    <h1>Book Details Registration</h1>
-
-    <form action="/addBook" method="POST">
-
-        <label for="name">BookId:</label>
-
-        <input type="text" id="BookId" name="BookId" required><br>
-
-        <label for="name">ISBN:</label>
-
-        <input type="text" id="ISBN" name="ISBN" required><br>
-
-        <label for="name">Title:</label>
-
-        <input type="text" id="Title" name="Title" required><br>
-
-        <label for="name">Author:</label>
-
-        <input type="text" id="Author" name="Author" required><br>
-
-        <label for="name">PublisherID:</label>
-
-        <input type="text" id="PublisherID" name="PublisherID" required><br>
-
-        <label for="name">Description:</label>
-
-        <input type="text" id="Description" name="Description" required><br>
-
-        <label for="name">Catgory:</label>
-
-        <input type="text" id="Catagory" name="Catagory" required><br>
-
-        <label for="name">Location:</label>
-
-        <input type="text" id="Location" name="Location" required><br>
-
-        <label for="name">LibraryID:</label>
-
-        <input type="text" id="LibraryID" name="LibraryID" required><br>
-
-        <input type="submit" value="Register">
-
-    </form>
-
+  <h1>Book Details Registration</h1>
+  <form action="/addBook" method="POST">
+    <label for="BookId">BookId:</label>
+    <input type="text" id="BookId" name="BookId" required>
+    <label for="ISBN">ISBN:</label>
+    <input type="text" id="ISBN" name="ISBN" required>
+    <label for="Title">Title:</label>
+    <input type="text" id="Title" name="Title" required>
+    <label for="Author">Author:</label>
+    <input type="text" id="Author" name="Author" required>
+    <label for="PublisherID">PublisherID:</label>
+    <input type="text" id="PublisherID" name="PublisherID" required>
+    <label for="Description">Description:</label>
+    <input type="text" id="Description" name="Description" required>
+    <label for="Catagory">Catgory:</label>
+    <input type="text" id="Catagory" name="Catagory" required>
+    <label for="Location">Location:</label>
+    <input type="text" id="Location" name="Location" required>
+    <label for="LibraryID">LibraryID:</label>
+    <input type="text" id="LibraryID" name="LibraryID" required>
+    <input type="submit" value="Register">
+  </form>
 </body>
 
 </html>

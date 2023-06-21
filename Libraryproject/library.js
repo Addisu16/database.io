@@ -89,15 +89,15 @@ app.get('/addBook', (req, res) => {
 });
 
 
-
+//serve the addMemb.html
 app.get('/addMembers', (req, res) => {
 
-    res.sendFile(__dirname + "/addMeb.html");
+    res.sendFile(__dirname + "/addMemb.html");
 
 });
 
 
-
+//serve the updateMemb.ejs
 
 app.get('/updateMember/:id', async (req, res) => {
     let id = req.params.id;
@@ -117,7 +117,7 @@ app.get('/updateMember/:id', async (req, res) => {
 
 });
 
-
+//serve the updateMemb.ejs
 app.post('/deleteMember', async (req, res) => {
     let memberId = req.body.id; let connection;
     try {
@@ -133,6 +133,8 @@ app.post('/deleteMember', async (req, res) => {
     }
 
 });
+
+//serve the listMembers.ejs
 
 app.get('/listMember', async (req, res) => {
     let connection;
@@ -179,30 +181,36 @@ app.get('/listbook', async (req, res) => {
     } finally {
         await connection.close();
     }
-})
+});
 
+//Checkout book
 
-// Retrieve all members
+app.post('/chcekout',async(req,res)=>{
+    let connection;
+    const {ISBN}=req.body;
+   
+    try{
+        connection=await getConnection();
+        const book=await connection.db().collection('book').findOne({ISBN});
+        if(!book){
+            return res.status(404).send('Book not found. ');
 
-// app.get('/getmembers', async (req, res) => {
+        }
+        if(!book.availiable){
+            return res.status(400).send('Book is not availiable for checkout');
+           
+        }
 
-//     try {
-
-//         const members = await database.collection('members').find().toArray();
-
-//         res.json(members);
-
-//     } catch (error) {
-
-//         console.error('Error retrieving members:', error);
-
-//         res.sendStatus(500);
-
-//     }
-
-// });
-
-
+        //perform chcekout the book
+        await connection.db().collection('book').updateOne({ISBN},{$set:{availiable:true}});
+        res.send('Chcekout successful ');
+    }catch(error){
+        console.error('Error during chcekout:',error);
+        res.sendStatus(500);
+    }finally{
+        await connection.close();
+    }
+});
 
 
 

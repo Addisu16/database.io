@@ -2,89 +2,113 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        input[type="text"],
-        input[type="submit"] {
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 200px;
-            margin-right: 10px;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-        a {
-            text-decoration: none;
-            color: #0066cc;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th,
-        td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        form.inline-form {
-            display: inline-block;
-        }
-        form.inline-form input[type="submit"] {
-            margin-top: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Book</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    form.inline-form {
+      display: inline-block;
+    }
+
+    form.inline-form input[type="text"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 200px;
+      margin-right: 10px;
+    }
+
+    form.inline-form input[type="submit"] {
+      margin-top: 0;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0066cc;
+    }
+  </style>
 </head>
 
 <body>
-    <h1>listbook</h1>
-    <div>
-
-        <form action="listbook" method="get" class="inline-form">
-            <input type="text" name="ISBN" placeholder="ISBN" value="<%= query.ISBN %>" />
-
-        </form>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>ISBN</th>
-                <th>Author</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for (var i=0; i < listbook.length; i++) { %>
-                <tr>
-                    <td>
-                        <%= listbook[i].ISBN %>
-                    </td>
-                </tr>
-                <% } %>
-        </tbody>
-    </table>
+  <h1>List Book</h1>
+  <div>
+    <form action="listbook" method="get" class="inline-form">
+      <input type="text" name="ISBN" placeholder="ISBN" value="<%= query.ISBN %>" />
+      <input type="submit" value="Search" />
+    </form>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>PublisherID</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Location</th>
+        <th>LibraryID</th>
+        <th>BookStatus</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i = 0; i < listbook.length; i++) { %>
+      <tr>
+        <td><%= listbook[i].ISBN %></td>
+        <td><%= listbook[i].Title %></td>
+        <td><%= listbook[i].Author %></td>
+        <td><%= listbook[i].PublisherID %></td>
+        <td><%= listbook[i].Description %></td>
+        <td><%= listbook[i].Catagory %></td>
+        <td><%= listbook[i].Location %></td>
+        <td><%= listbook[i].LibraryID %></td>
+        <td><%= listbook[i].BookStatus %></td>
+        <td>
+          <form method="POST" action="/checkout" class="inline-form">
+            <input type="hidden" name="ISBN" value="<%= listbook[i].ISBN %>">
+            <input type="checkbox" value="true">
+            <input type="submit" value="Checkout">
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
 </body>
 
 </html>

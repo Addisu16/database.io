@@ -1,88 +1,80 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members Registration</title>
 
-    <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    h1 {
+      margin-bottom: 20px;
+    }
 
-    <title>Members Registration</title>
+    form {
+      margin-bottom: 20px;
+    }
 
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
 
+    input[type="text"],
+    input[type="number"],
+    input[type="submit"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
 
 <body>
+  <h1>Members Registration</h1>
+  <form action="/addMembers" method="POST">
+    <label for="MemberId">MemberID:</label>
+    <input type="text" id="MemberId" name="MemberID" required>
 
-    <h1>Members Registration</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="Name" required>
 
-    <form action="/addMembers" method="POST">
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="Address" required>
 
-        <label for="name">MemberID:</label>
+    <label for="phone">Phone:</label>
+    <input type="number" id="phone" name="Phone" required>
 
-        <input type="text" id="MemberId" name="MemberID" required><br>
+    <label for="Payment">Payment:</label>
+    <input type="text" id="Payment" name="Payment" required>
 
-        <label for="name">Name:</label>
+    <label for="role">Role:</label>
+    <input type="text" id="role" name="Role" required>
 
-        <input type="text" id="name" name="Name" required><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="Age" required>
 
-        <label for="name">Address:</label>
-
-        <input type="text" id="address" name="Address" required><br>
-
-        <label for="name">Phone:</label>
-
-        <input type="number" id="phone" name="Phone" required><br>
-
-        <label for="name">Payment:</label>
-
-        <input type="text" id="Payment" name="Payment" required><br>
-
-        <label for="name">Role:</label>
-
-        <input type="text" id="role" name="Role" required><br>
-
-        <label for="name">Age:</label>
-
-        <input type="number" id="age" name="Age" required><br>
-        <input type="submit" value="Register">
-
-        <br>
-
-    </form>
-
-    <!-- <form action="/updateMember/:id" method="PUT">
-        <input type="hidden" name="_method" value="PUT">
-        <label for="updateMemberId">MemberID:</label>
-        <input type="text" id="updateMemberId" name="MemberID" required><br>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="Name" required><br>
-        <label for="name">Address:</label>
-        <input type="text" id="address" name="Address" required><br>
-        <label for="name">Phone:</label>
-        <input type="number" id="phone" name="Phone" required><br>
-        <label for="name">Payment:</label>
-        <input type="text" id="Payment" name="Payment" required><br>
-        <label for="name">Role:</label>
-        <input type="text" id="role" name="Role" required><br>
-        <label for="name">Age:</label>
-        <input type="number" id="age" name="Age" required><br>
-        <input type="submit" value="Update Member">
-    </form> -->
-
-    <br>
-
-    <!-- 
-    <form action="/deleteMember/:id" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <label for="deleteMemberId">MemberID:</label>
-        <input type="text" id="deleteMemberId" name="MemberID" required><br>
-        <input type="submit" value="Delete Member">
-    </form> -->
-
-
-
-
+    <input type="submit" value="Register">
+  </form>
 </body>
 
 </html>
