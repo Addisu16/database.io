@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Checked Out Books</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css"> <!-- Assuming you have a separate CSS file -->
+</head>
+<body>
+    <h1>Checked Out Books</h1>
+    <% if (checkedOutBooks.length === 0) { %>
+        <p>No books are currently checked out.</p>
+    <% } else { %>
+        <table>
+            <tr>
+                <th>Member ID</th>
+                <th>Name</th>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Due Date</th>
+            </tr>
+            <% checkedOutBooks.forEach(book => { %>
+                <tr>
+                    <td><%= book.MemberID %></td>
+                    <td><%= book.Name %></td>
+                    <td><%= book.ISBN %></td>
+                    <td><%= book.Title %></td>
+                    <td><%= book.dueDate %></td>
+                </tr>
+            <% }); %>
+        </table>
+    <% } %>
+</body>
+</html>

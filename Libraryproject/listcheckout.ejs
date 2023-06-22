@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checked Out Books</title>
+</head>
+<body>
+    <form method="get" action="" class="inline-form">
+        <input type="text" name="name" placeholder="Name" value="<%= query.Name %>" />
+        <input type="text" name="phoneNumber" placeholder="Phone Number" value="<%= query.Phone %>" />
+        <input type="submit" value="Search" />
+    </form>
+
+    <div>
+        <p><a href="/addMembers">Add Member</a></p>
+    </div>
+    <h1>Checked Out Books</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Member ID</th>
+                <th>Name</th>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% checkedOutBooks.forEach(book => { %>
+                <tr>
+                    <td><%= book.MemberID %></td>
+                    <td><%= book.Name %></td>
+                    <td><%= book.ISBN %></td>
+                    <td><%= book.Title %></td>
+                    <td><%= book.dueDate %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
